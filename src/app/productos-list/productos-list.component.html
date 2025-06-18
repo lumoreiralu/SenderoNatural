@@ -1,1 +1,19 @@
-<p>productos-list works!</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let producto of productos">
+            <td><img class="img-tbl" [src]="producto.image" [alt]="producto.name"></td>
+            <td>{{producto.name}}</td>
+            <td>{{producto.price}}</td>
+            <td>{{producto.stock}}</td>  
+        </tr>
+    </tbody>
+
+</table>
