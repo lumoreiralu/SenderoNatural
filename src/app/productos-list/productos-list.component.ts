@@ -23,7 +23,7 @@ export class ProductosListComponent implements OnInit {
   {
     "name" : "Fuente de agua",
     "price" : 69000,
-    "stock" : 16,
+    "stock" : 0,
     "image" : "assets/img/fuente.jpeg"
   },
 

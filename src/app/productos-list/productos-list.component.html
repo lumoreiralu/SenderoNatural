@@ -8,12 +8,22 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let producto of productos">
+        @for(producto of productos; track producto.name){ 
+        <tr>
             <td><img class="img-tbl" [src]="producto.image" [alt]="producto.name"></td>
             <td>{{producto.name}}</td>
             <td>{{producto.price}}</td>
-            <td>{{producto.stock}}</td>  
+            @if (producto.stock > 0){
+                <td>{{producto.stock}}</td>
+            } @else {
+                <td> <span class="badge bg-warning text-dark"> Sin Stcok</span></td>
+            }
         </tr>
+        } @empty {
+            <tr>
+                <td>No hay productos para mostrar.</td>
+            </tr>
+        }
     </tbody>
 
 </table>
