@@ -8,13 +8,13 @@
         </tr>
     </thead>
     <tbody>
-        @for(producto of productos; track producto.name){ 
+        @for(product of products; track product.name){ 
         <tr>
-            <td><img class="img-tbl" [src]="producto.image" [alt]="producto.name"></td>
-            <td>{{producto.name}}</td>
-            <td>{{producto.price}}</td>
-            @if (producto.stock > 0){
-                <td>{{producto.stock}}</td>
+            <td><img class="img-tbl" [src]="product.image" [alt]="product.name"></td>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            @if (product.stock > 0){
+                <td>{{product.stock}}</td>
             } @else {
                 <td> <span class="badge bg-warning text-dark"> Sin Stcok</span></td>
             }
