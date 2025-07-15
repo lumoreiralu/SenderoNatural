@@ -5,4 +5,19 @@
     border-radius: 6px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
   }
-  
+.clearance{
+  border-left: 4px solid #22ce4d;
+  background-color: greenyellow;
+}
+tr.clearance td{
+  background-color: greenyellow;
+}
+tr.clearance{
+  border-left: 4px solid green;
+}
+.square-input {
+  width: 40px;
+  height: 38px; 
+  text-align: center;
+  padding: 0;
+}

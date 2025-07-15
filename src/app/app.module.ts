@@ -4,17 +4,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product-list/product-list.component';
-import { CarritoComprasComponent } from './carrito-compras/carrito-compras.component';
+
+import { FormsModule } from '@angular/forms';
+import { SenderoAboutComponent } from './sendero-about/sendero-about.component';
+import { CartComponent } from './cart/cart.component';
+import { SenderoProductsComponent } from './sendero-products/sendero-products.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
-    CarritoComprasComponent
+    SenderoAboutComponent,
+    CartComponent,
+    SenderoProductsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
