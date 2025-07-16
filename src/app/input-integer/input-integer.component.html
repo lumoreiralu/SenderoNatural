@@ -1,0 +1,4 @@
+<button class="btn btn-outline-danger" (click)="downQuantity()">-</button>
+                <input class="square-input"
+                    type="text" [(ngModel)]="quantity" (keyup)="changeQuantity($event)">
+                <button class="btn btn-outline-success" (click)="upQuantity()">+</button>

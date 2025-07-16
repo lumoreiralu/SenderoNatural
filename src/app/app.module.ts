@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { SenderoAboutComponent } from './sendero-about/sendero-about.component';
 import { CartComponent } from './cart/cart.component';
 import { SenderoProductsComponent } from './sendero-products/sendero-products.component';
+import { InputIntegerComponent } from './input-integer/input-integer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SenderoProductsComponent } from './sendero-products/sendero-products.co
     ProductListComponent,
     SenderoAboutComponent,
     CartComponent,
-    SenderoProductsComponent
+    SenderoProductsComponent,
+    InputIntegerComponent
   ],
   imports: [
     BrowserModule,

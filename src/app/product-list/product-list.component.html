@@ -10,23 +10,29 @@
     </thead>
     <tbody>
         @for(product of products; track product.name){ 
-        <tr [class.clearance]="product.clearance">
-            <td><img class="img-tbl" [src]="product.image" [alt]="product.name"></td>
-            <td>{{product.name}} @if (product.clearance) {
-                <span class="badge bg-success text-white ms-2">¡Oferta!</span>
-            }</td>
-            <td>{{product.price | currency }}</td>
-            @if (product.stock > 0){
-                <td><span class="badge bg-warning text-dark">Hay Stock</span></td>
-            } @else {
-                <td> <span class="badge bg-danger text-white"> Sin Stcok</span></td>
-            }
-            <td>
-                <button class="btn btn-outline-danger" (click)="downQuantity(product)">-</button>
-                <input class="square-input"
-                    type="text" [(ngModel)]="product.quantity"
-                    (keyup)="changeQuantity($event, product)">
-                <button class="btn btn-outline-success" (click)="upQuantity(product)">+</button></td>
+            <tr [class.clearance]="product.clearance">
+                <td>
+                    <img class="img-tbl" [src]="product.image" [alt]="product.name">
+                </td>
+                <td>{{product.name}} @if (product.clearance) {
+                        <span class="badge bg-success text-white ms-2">¡Oferta!</span>
+                    }
+                </td>
+                <td>
+                    {{product.price | currency }}
+                </td>
+                @if (product.stock > 0){
+                    <td>
+                        <span class="badge bg-warning text-dark">Hay Stock</span>
+                    </td>
+                } @else {
+                        <td> 
+                            <span class="badge bg-danger text-white"> Sin Stcok</span>
+                        </td>
+                    }
+                <td>
+                    <app-input-integer [(quantity)]="product.quantity" [max]="product.stock" (maxReached)="maxReached($event)"></app-input-integer>
+                </td>
             </tr>
         } @empty {
             <tr>

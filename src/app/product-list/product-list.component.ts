@@ -39,25 +39,8 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
       
   }
-  upQuantity(product : Product): void{
-    if(product.quantity < product.stock)
-      product.quantity++;
+  maxReached(m: number){
+    console.log(m);
   }
-  downQuantity(product : Product): void{
-    if(product.quantity > 0)
-      product.quantity--;
-  }
-  changeQuantity(event: KeyboardEvent, product : Product): void{
-    const inputElement = event.target as HTMLInputElement;
-    const value = Number(inputElement.value);
   
-    if (!isNaN(value) && value >= 0 && value <= product.stock) {
-      product.quantity = value;
-    } else if (value > product.stock) {
-      product.quantity = product.stock;
-    } else {
-      product.quantity = 0;
-    }
-    event.preventDefault()
-  }
 }
