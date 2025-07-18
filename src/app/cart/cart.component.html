@@ -3,33 +3,11 @@
 
   <div class="card shadow">
     <div class="card-body">
-      @if ((cartList$ | async) as cartList) {
-        @if (cartList.length > 0) {
-          <ul class="list-group mb-3">
-            @for (product of cartList; track product.name) {
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                {{ product.name }} (x{{ product.quantity }})
-                <span class="badge bg-primary rounded-pill">
-                  ${{ product.price * product.quantity }}
-                </span>
-              </li>
-            }
-          </ul>
-
-          <div class="d-flex justify-content-between mt-3">
-            <strong>Total:</strong>
-            <strong>
-              ${{ cartList.reduce((acc, item) => acc + item.price * item.quantity, 0) }}
-            </strong>
-          </div>
-
-          <div class="text-end mt-3">
-            <button class="btn btn-success">Finalizar compra</button>
-          </div>
-        } @else {
-          <p class="text-center">Tu carrito está vacío.</p>
+      <ul>
+        @for (product of cartList$ | async; track product.name) {
+          <li>{{product.name}}: {{product.quantity}}</li>
         }
-      }
+      </ul>
     </div>
   </div>
 </div>
