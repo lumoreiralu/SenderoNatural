@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from './Product';
+import { ProductCartService } from '../product-cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -34,11 +35,21 @@ export class ProductListComponent implements OnInit {
       'quantity' : 0,
     },
   ]
-  constructor() { }
+
+  constructor(private cart : ProductCartService) { 
+  }
 
   ngOnInit(): void {
       
   }
+  addToCart(product: Product): void {
+    if (product.quantity > 0 && product.quantity <= product.stock) {
+      this.cart.addToCart(product);
+      product.stock -= product.quantity;
+      product.quantity = 0;
+    }
+  }
+  
   maxReached(m: number){
     console.log(m);
   }

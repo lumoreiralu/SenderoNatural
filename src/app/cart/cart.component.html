@@ -1,29 +1,35 @@
 <div class="container my-4">
-    <h2 class="mb-4 text-center">Carrito de Compras</h2>
-  
-    <div class="card shadow">
-      <div class="card-body">
-        <ul class="list-group mb-3">
-          <!-- Ítems de ejemplo -->
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            Producto 1
-            <span class="badge bg-primary rounded-pill">$1000</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            Producto 2
-            <span class="badge bg-primary rounded-pill">$2000</span>
-          </li>
-        </ul>
-  
-        <div class="d-flex justify-content-between">
-          <strong>Total:</strong>
-          <strong>$3000</strong>
-        </div>
-  
-        <div class="text-end mt-3">
-          <button class="btn btn-success">Finalizar compra</button>
-        </div>
-      </div>
+  <h2 class="mb-4 text-center">Carrito de Compras</h2>
+
+  <div class="card shadow">
+    <div class="card-body">
+      @if ((cartList$ | async) as cartList) {
+        @if (cartList.length > 0) {
+          <ul class="list-group mb-3">
+            @for (product of cartList; track product.name) {
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ product.name }} (x{{ product.quantity }})
+                <span class="badge bg-primary rounded-pill">
+                  ${{ product.price * product.quantity }}
+                </span>
+              </li>
+            }
+          </ul>
+
+          <div class="d-flex justify-content-between mt-3">
+            <strong>Total:</strong>
+            <strong>
+              ${{ cartList.reduce((acc, item) => acc + item.price * item.quantity, 0) }}
+            </strong>
+          </div>
+
+          <div class="text-end mt-3">
+            <button class="btn btn-success">Finalizar compra</button>
+          </div>
+        } @else {
+          <p class="text-center">Tu carrito está vacío.</p>
+        }
+      }
     </div>
   </div>
-  
+</div>
